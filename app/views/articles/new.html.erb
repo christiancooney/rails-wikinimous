@@ -1,0 +1,25 @@
+<div class="container text-center">
+<header class="d-flex justify-content-between p-2 bg-secondary bg-opacity-10">
+<button><%= link_to "Wikinimous", articles_path %></button>
+<button><%= link_to "New article", new_article_path %></button>
+</header>
+<div class="card text-center">
+<h1>New article</h1>
+</div>
+
+<div class="card text-center">
+
+<%= form_with model: @article do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+  <%= f.submit %>
+<% end %>
+</div>
+
+<div class="card text-center">
+
+<button><%= link_to "Back to list", articles_path %></button>
+</div>
+</div>

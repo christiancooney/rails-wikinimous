@@ -1,0 +1,22 @@
+<div class="container text-center">
+<header class="d-flex justify-content-between p-2 bg-secondary bg-opacity-10">
+<button><%= link_to "Wikinimous", articles_path %></button>
+<button><%= link_to "New article", new_article_path %></button>
+</header>
+<h1>Articles</h1>
+
+<div class="card text-center">
+<ol class="list-group">
+  <% @article.each do |article| %>
+    <li class="list-group-item"><%= link_to article.title, article_path(article)%></li>
+    <button><%= link_to "Delete", article_path(article),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+    %></button>
+  <% end %>
+  </div>
+</ol>
+
+
+<button><%= link_to "New article", new_article_path %></button>
+</div>
+</div>

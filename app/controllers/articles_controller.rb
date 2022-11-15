@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    # @task = Task.find(params[:id])
+    @article = Article.find(params[:id])
   end
 
   def new
@@ -12,35 +12,35 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    # @task = Task.create(task_params_create)
-    # redirect_to task_path(@task)
+    @article = Article.create(article_params_create)
+    redirect_to article_path(@article)
   end
 
   def edit
-    # @task = Task.find(params[:id])
+     @article = Article.find(params[:id])
   end
 
   def update
-    # @task = Task.find(params[:id])
-    # @task.update(task_params_update)
-    # redirect_to task_path(@task)
+    @article = Article.find(params[:id])
+    @article.update(article_params_update)
+    redirect_to article_path(@article)
   end
 
   def destroy
-    # @task = Task.find(params[:id])
-    # @article.destroy
-    # redirect_to tasks_path, status: :see_other
+    @article = Article.find(params[:id])
+    @article.destroy
+    redirect_to articles_path, status: :see_other
   end
 
 
   private
 
   def article_params_create
-    # params.require(:task).permit(:title, :details).with_defaults(completed: false)
+    params.require(:article).permit(:title, :content)
   end
 
   def article_params_update
-    # params.require(:task).permit(:title, :details, :completed)
+    params.require(:article).permit(:title, :content)
   end
 
 end

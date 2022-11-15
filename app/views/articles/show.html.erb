@@ -1,0 +1,25 @@
+<header class="d-flex justify-content-between p-2 bg-secondary bg-opacity-10">
+<button><%= link_to "Wikinimous", articles_path %></button>
+<button><%= link_to "New article", new_article_path %></button>
+</header>
+<div class="container text-center border">
+<h1>Article</h1>
+<div class="card text-center">
+<h2><%= @article.title %></h2>
+<p>Description: <%= @article.content %></p>
+
+</div>
+<div class="card text-center">
+
+<button><%= link_to "Delete",
+  article_path,
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%></button>
+
+
+<button><%= link_to "Edit article", edit_article_path %></button>
+</div>
+<div class="card text-center">
+<button><%= link_to "Back to list", articles_path %></button>
+</div>
+</div>
